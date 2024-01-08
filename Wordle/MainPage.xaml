@@ -1,16 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Wordle.MainPage">
+             x:Class="Wordle.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Style="{DynamicResource PageStyle}">
 
-    <Grid x:Name="WordleGrid" BackgroundColor="White"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand">
+    <StackLayout>
+        <Grid x:Name="WordleGrid" BackgroundColor="White"
+              HorizontalOptions="CenterAndExpand"
+              VerticalOptions="CenterAndExpand">
 
-        <!-- Add your grid dynamically using code-behind -->
+            <!-- Adding grid dynamically -->
 
-        <Button Text="Generate Grid" Clicked="OnGenerateGridClicked" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,20" />
+        </Grid>
+        <!-- Keyboard Grid -->
+        <Grid x:Name="KeyboardGrid" BackgroundColor="DarkGrey" HorizontalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- First row -->
+            <Button Grid.Row="0" Grid.Column="0" Text="Q" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="1" Text="W" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="2" Text="E" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="3" Text="R" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="4" Text="T" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="5" Text="Y" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="6" Text="U" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="7" Text="I" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="8" Text="O" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="0" Grid.Column="9" Text="P" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+
+            <!-- Second row -->
+            <Button Grid.Row="1" Grid.Column="0" Text="A" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="1" Text="S" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="2" Text="D" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="3" Text="F" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="4" Text="G" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="5" Text="H" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="6" Text="J" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="7" Text="K" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="1" Grid.Column="8" Text="L" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+
+            <!-- Enter Button -->
+            <Button Grid.Row="2" Grid.Column="0" Text="ENTER" Clicked="OnEnterButtonClicked" Grid.ColumnSpan="2" Style="{DynamicResource LabelStyle}" />
+
+            <!-- Third row -->
+            <Button Grid.Row="2" Grid.Column="2" Text="Z" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="3" Text="X" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="4" Text="C" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="5" Text="V" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="6" Text="B" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="7" Text="N" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+            <Button Grid.Row="2" Grid.Column="8" Text="M" Clicked="OnKeyboardButtonClicked" Style="{DynamicResource LabelStyle}" />
+
+            <!-- Backspace button -->
+            <Button Grid.Row="2" Grid.Column="9" Text="⌫" Clicked="OnBackspaceButtonClicked" Grid.ColumnSpan="2" Style="{DynamicResource LabelStyle}" />
+        </Grid>
+
+        <!-- Additional button grid -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Button to go back to StartPage -->
+            <Button Text="Back to Start" Clicked="OnBackToStartClicked" HorizontalOptions="Start" VerticalOptions="End" Margin="20,0,0,20" BackgroundColor="Blue" Grid.Column="0" />
+
+            <!-- Settings Button -->
+            <Button Text="Settings" Clicked="OnSettingsButtonClicked" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,20,20" BackgroundColor="Blue" Grid.Column="1" />
+
+            <Button Text="Progression" Clicked="OnProgressionClicked" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,20,20" BackgroundColor="Blue" Grid.Column="2" />
+        </Grid>
+
+    </StackLayout>
 
 </ContentPage>

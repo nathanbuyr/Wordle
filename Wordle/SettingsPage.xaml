@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wordle.SettingsPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Style="{DynamicResource PageStyle}">
+            
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <!-- Dark/Light Mode Toggle Switch -->
+        <Switch x:Name="DarkModeSwitch" IsToggled="false" Toggled="OnDarkModeSwitchToggled" />
+        <Label Text="Dark Mode" Style="{DynamicResource LabelStyle}"/>
+        <!-- Button to go back to StartPage -->
+        <Button Text="Back" Clicked="OnBackToStartClicked" HorizontalOptions="Start" VerticalOptions="End" Margin="20,0,0,20" BackgroundColor="Blue" Grid.Column="0" />
+
+
+    </StackLayout>
+
+</ContentPage>

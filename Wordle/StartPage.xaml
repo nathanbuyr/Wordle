@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Wordle.StartPage">
+             x:Class="Wordle.StartPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Style="{DynamicResource PageStyle}">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Button Text="Start Game" Clicked="OnStartGameClicked" />
+        <Image Source="wordle_lockup.png" WidthRequest="200" HeightRequest="200" />
+        
+        <Label x:Name="WelcomeLabel" Text="" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,20" />
+        
+        <Button x:Name="StartGameButton" Text="Start game" Clicked="OnStartGameClicked" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,10" BackgroundColor="blue" />
     </StackLayout>
 
 </ContentPage>
